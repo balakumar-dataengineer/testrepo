@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic E-commerce Website</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>E-commerce Store </h1>
+</header>
+
+<div class="container" id="login-section">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter username" />
+    <button onclick="login()">Login</button>
+</div>
+
+<div class="container" id="products-section" style="display: none;">
+    <h2>Products</h2>
+    <div class="product">
+        <span>Laptop - $1200</span>
+        <button onclick="addToCart('Laptop', 1200)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <span>Mouse - $25</span>
+        <button onclick="addToCart('Mouse', 25)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <span>Keyboard - $75</span>
+        <button onclick="addToCart('Keyboard', 75)">Add to Cart</button>
+    </div>
+</div>
+
+<div class="container" id="cart-section" style="display: none;">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p>Total: $<span id="cart-total">0</span></p>
+    <button onclick="makePayment()">Proceed to Payment</button>
+</div>
+
+<div class="container" id="payment-section" style="display: none;">
+    <h2>Payment</h2>
+    <p>Thank you for shopping! Your payment is successful.</p>
+</div>
+
+<script src="script.js">
+</script>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+</body>
+</html>
