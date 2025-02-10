@@ -1,7 +1,7 @@
 function login() {
     const username = document.getElementById('username').value;
     if (username.trim() === '') {
-        alert('Please enter a username.');
+        alert('Please enter a username:');
         return;
     }
     document.getElementById('login-section').style.display = 'none';
