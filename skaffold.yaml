@@ -6,13 +6,13 @@ deploy:
     manifests:
       - k8s/*.yaml
 profiles:
-  - name: emarket-pipeline-target-1-non-prod
+  - name: non-prod
     deploy:
       kubectl:
         manifests:
-          - k8s/emarket-pipeline-target-1-non-prod/*.yaml
-  - name: emarket-pipeline-target-2-prod
+          - k8s/non-prod/*.yaml
+  - name: prod
     deploy:
       kubectl:
         manifests:
-          - k8s/emarket-pipeline-target-2-prod/*.yaml
+          - k8s/prod/*.yaml
