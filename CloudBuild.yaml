@@ -1,13 +1,13 @@
 steps:
 # Step 0
 #docker build the image from httpd public dockerhub Apache image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/project-vpc-bala/testrepo/emarket-image',
+  - name: 'gcr.io/cloud-builders/docker1'
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/project-vpc-bala/testrepo/emarket-test',
 './App' ]
 # Step 1
 #push the previously built image to the docker repo created in Step 0
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/project-vpc-bala/testrepo/emarket-image']
+  - name: 'gcr.io/cloud-builders/docker1'
+    args: ['push', 'us-central1-docker.pkg.dev/project-vpc-bala/testrepo/emarket-test']
 # Step 2
 # Publish the release
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -16,7 +16,7 @@ steps:
     - '-c'
     - |
       gcloud deploy releases create r-$BUILD_ID \
-      --delivery-pipeline="emarketpipeline" \
+      --delivery-pipeline="emarket-pipeline" \
       --region="us-central1" \
       --images="emarket-image=us-central1-docker.pkg.dev/project-vpc-bala/testrepo/emarketimage:latest" \
       --source="./"
