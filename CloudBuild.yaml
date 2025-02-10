@@ -15,11 +15,11 @@ steps:
     args:
     - '-c'
     - |
-    gcloud deploy releases create r-$BUILD_ID \
-    --delivery-pipeline="emarketpipeline" \
-    --region="us-central1" \
-    --images="emarket-image=us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarketimage:latest" \
-    --source="./"
+      gcloud deploy releases create r-$BUILD_ID \
+      --delivery-pipeline="emarketpipeline" \
+      --region="us-central1" \
+      --images="emarket-image=us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarketimage:latest" \
+      --source="./"
 options:
   logging: CLOUD_LOGGING_ONLY # Use Cloud Logging for logs
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET # (Alternative) Use regional bucket for logs
