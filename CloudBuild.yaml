@@ -1,27 +1,28 @@
 steps:
 # Step 0
 #docker build the image from httpd public dockerhub Apache image
-    - name: 'gcr.io/cloud-builders/docker'
-      args: [ 'build', '-t', 'us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarket-image',
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarket-image',
 './App' ]
 # Step 1
 #push the previously built image to the docker repo created in Step 0
-    - name: 'gcr.io/cloud-builders/docker'
-      args: ['push', 'us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarket-image']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarket-image']
 # Step 2
 # Publish the release
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-  gcloud deploy releases create r-$BUILD_ID \
-  --delivery-pipeline="emarketpipeline" \
-  --region="us-central1" \
-  --images="emarket-image=us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarketimage:latest" \
-  --source="./"
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+    - '-c'
+    - |
+    gcloud deploy releases create r-$BUILD_ID \
+    --delivery-pipeline="emarketpipeline" \
+    --region="us-central1" \
+    --images="emarket-image=us-central1-docker.pkg.dev/project-alpha12/emarket-repo/emarketimage:latest" \
+    --source="./"
 options:
-    logging: CLOUD_LOGGING_ONLY # Use Cloud Logging for logs
-    defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET # (Alternative) Use regional bucket for logs# **Fix: Ensure Service Account is Configured**
+  logging: CLOUD_LOGGING_ONLY # Use Cloud Logging for logs
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET # (Alternative) Use regional bucket for logs
 
+# **Fix: Ensure Service Account is Configured**
 serviceAccount: "projects/project-alpha12/serviceAccounts/896205892070-compute@developer.gserviceaccount.com"
