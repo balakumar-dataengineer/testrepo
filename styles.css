@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #60e917;
+    background-color: #1114d9;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: rgb(5, 180, 207);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -34,7 +34,7 @@ h2 {
 
 button {
     padding: 5px 10px;
-    background-color: #4CAF50;
+    background-color: #d31515;
     color: white;
     border: none;
     cursor: pointer;
