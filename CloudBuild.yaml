@@ -15,7 +15,7 @@ steps:
     - '-c'
     - |
       gcloud deploy releases create r-$BUILD_ID \
-      --delivery-pipeline="emarkert-pipeline" \
+      --delivery-pipeline="emarket-pipeline" \
       --region="us-central1" \
       --images="emarket-image=us-central1-docker.pkg.dev/project-vpc-bala/emarket-test/emarket-image:latest" \
       --source="./"
